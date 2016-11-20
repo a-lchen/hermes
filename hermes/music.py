@@ -1,9 +1,20 @@
+#!/usr/bin/env python
+
+"""
+Music module
+
+Takes care of all music related queries
+"""
+
 import threading
 import subprocess
 
 from speech import *
 
 class musicThread (threading.Thread):
+    """
+    Thread object that runs Shpotify to play a off one's spotify
+    """
     def __init__(self, threadID, name, actionId, payload):
         threading.Thread.__init__(self)
         self.threadID = threadID
@@ -16,6 +27,7 @@ class musicThread (threading.Thread):
         subprocess.call('spotify play', shell=True)
 
     def run(self):
+        """Runs any music action depending on what action was requested"""
         print "Starting " + self.name
         if (self.actionId == "start"):
             print "starting music"
@@ -33,6 +45,14 @@ class musicThread (threading.Thread):
 
 
 def listenMusicCues(inp):
+    """
+    Determines what action to perform in the context of music depending on what
+    the user said to Hermes
+
+    Options include next, pause, or choosing a specific song
+
+    Returns whether or not the music stayed on (musicOn)
+    """
     musicOn = True
     if ("next" in inp):
         #subprocess.call('spotify next& \n', shell=True)
