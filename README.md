@@ -6,7 +6,7 @@ Hermes is a personal assistant that lives on your Macbook
 
 * **Basic Conversational Skill**
 
-    Basic functionality for conversation and interaciton (constantly improving!)
+    Basic functionality for conversation and interaction (constantly improving!)
 
 * **Spotify Integration**
 
